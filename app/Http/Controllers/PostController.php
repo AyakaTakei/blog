@@ -11,6 +11,7 @@ class PostController extends Controller
     {
         return $post->get();
     }
+
 /**
  * 特定IDのpostを表示する
  *
@@ -22,3 +23,4 @@ class PostController extends Controller
     return view('show')->with(['post' => $post]);
     }
 }
+
