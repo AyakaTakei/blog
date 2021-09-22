@@ -21,6 +21,18 @@
         <div class="footer">
             <a href="/">戻る</a>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+            <form action="/posts/{{ $post->id }}" id="form_delete" method="post" style="display:inline">
+                @csrf
+                @method('DELETE')
+                <p class='delete'>[<span onclick="return deletePost(this);">delete</span>]</p>
+            </form>
         </div>
+        <script>
+        function deletePost() {
+            if(confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                document.getElementById('form_delete').submit();
+            }
+        }
+        </script>
     </body>
 </html>
